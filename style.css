@@ -8,10 +8,12 @@
 
 body {
     margin: 0;
-    height: 400vh; /* Critical for enabling a large scroll area */
+    /* height: 400vh; */
     background-color: #000000;
     color: #333;
     font-family: 'Poppins', sans-serif;
+    padding-bottom: 100vh; 
+
 }
 
 /* --- 3D Background Canvas --- */
@@ -33,10 +35,10 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     
     /* Centering logic */
-    position: absolute;
+    position: relative;
     top: 50vh;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
 }
 
 /* --- Typography & Layout --- */
