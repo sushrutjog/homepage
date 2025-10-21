@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushrut Jog | Homepage</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script async src="https://unpkg.com/es-module-shims@1.6.3"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+            "three/examples/jsm/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+        }
+    }
+</script>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <div id="center-wrapper">
+        <nav>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <!-- <a href="#projects">Internships & Projects</a> -->
+                <a href="#blurbs">Blurbs</a>
+                <a href="#misc">Misc</a>
+            </div>
+            <button id="theme-toggle" title="Toggle dark/light mode">
+                <img src="assets/theme-icon.png" alt="Theme toggle icon" />
+            </button>
+        </nav>
+
+        <main id="content-container">
+            <section id="home">
+                <div class="home-photo">
+                    <img src="assets/profile-photo.jpeg" alt="A photo of Sushrut Jog">
+                </div>
+
+                <h2>Hello! I'm Sushrut Jog.</h2>
+                <p>I am a final year BS-MS student at IISER Bhopal, India. I am majoring in mathematics and minoring in computer science. My research interests are low-dimensional topology, hyperbolic geometry, geometric group theory, and automated theorem proving.</p>
+                <p>You can find my CV <a href="https://drive.google.com/file/d/1aymthhkjRFuWCXe_O4PIBKgbljOSaiCd/view?usp=sharing">here</a>.</p>
+            </section>
+
+            <section id="blurbs">
+                <p><i class="fa-solid fa-hammer"></i> Under construction. Please check back soon!</p>
+            </section>
+
+            <section id="misc">
+                <!-- <h2>Miscellaneous</h2> -->
+                <p><i class="fa-solid fa-hammer"></i> This, too, is under construction. Please check back soon!</p>
+            </section>
+
+            <section id="projects">
+                <h3>ARC-Net, IISc</h3>
+                <p>I contributed to the Lean helper tool LeanAide developed by Professor Sidhhartha Gadgil at IISc. The main goal was to automate the sentence-level translations from natural language to Lean. Other miscellaneous work includes Manim code generation, studying the applications of type theory and category theory in computation, and basic compiler theory.</p>
+
+                <h3>Summer Project in TDA</h3>
+                <p> I studied topological data analysis - applied algebraic topology and the implementation of filtrations and persistence homology in Mathematica. Topics studied include homotopy theory, simplicial complexes, filtrations, chain and cochain complexes, simplicial homology and cohomology, persistence homology and algorithms for filtrations. The project was supervised by Professor Kashyap Rajeevsarathy.</p>
+
+                <h3>KeratiNoMore, iGEM IISER Bhopal 2023</h3>
+                <p>I worked on KeratiNoMore – a sustainable solution for keratin waste management, for the competition International Genetically Engineered Machine (iGEM). My work was on mathematical modelling of bacterial kill switches, project implementation, bioreactor, and outreach.</p>
+                <p>As a part of outreach, I organised the national-level conference All India iGEM Meet 2023. The poster our team presented can be found here.</p>
+
+                <h3>Summer Porject in Geometric Group Theory</h3>
+                <p>I studied geometric and combinatorial group theory, the primary reference book was ‘Clay, Margalit (Editors). Office Hours with a Geometric Group Theorist.’ This project was supervised by Professor Kashyap Rajeevsarathy.</p>
+
+                <h3>Ramanujan Club, IISER Bhopal</h3>
+                <p>I studied population models in deterministic and stochastic settings. The primary reference paper was ‘Bertoin. Mathematical Models for Population Dynamics: Randomness versus Determinism.’ This project was supervised by Dr. Sombudhha Bhattacharyya.</p>
+
+
+                <h3>Global Talent Mentoring Program</h3>
+                <p>I was a mentee of the Global Talent Mentoring program by the World Giftedness Center. Worked under the guidance of Dr Swee Goh, CUHK, on solid-state physics. The primary reference book was ‘Blundell. Superconductivity: A Very Short Introduction.</p>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>

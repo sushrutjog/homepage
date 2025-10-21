@@ -1,0 +1,25 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sushrutjog/homepage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sushrutjog/homepage/issues"
+  },
+  "homepage": "https://github.com/sushrutjog/homepage#readme",
+  "dependencies": {
+    "three": "^0.180.0",
+    "vite": "^7.1.8"
+  }
+}

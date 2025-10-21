@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+
+/* --- OKLCH Color Palette --- */
+:root {
+    /* Dark Mode Palette */
+    --bg-dark: oklch(0.1 0.025 264);
+    --bg: oklch(0.15 0.025 264);
+    --bg-light: oklch(0.2 0.025 264);
+    --text: oklch(0.96 0.05 264);
+    --text-muted: oklch(0.76 0.05 264);
+    --highlight: oklch(0.5 0.05 264);
+    --border: oklch(0.4 0.05 264);
+    --border-muted: oklch(0.3 0.05 264);
+    --primary: oklch(0.76 0.1 264);
+    --secondary: oklch(0.76 0.1 84);
+    --danger: oklch(0.7 0.05 30);
+    --warning: oklch(0.7 0.05 100);
+    --success: oklch(0.7 0.05 160);
+    --info: oklch(59% 0.0424 260.638);
+    
+    /* NEW: Shadow color for dark mode (a light glow) */
+    --shadow-rgb: 220, 220, 255; 
+}
+
+/* --- Basic Reset & Body Styling --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 40vh;
+    padding-bottom: 50vh;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: 'Open Sans', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Light Mode Color Palette --- */
+body.light-mode {
+    --bg-dark: oklch(0.92 0.01 264);
+    --bg: oklch(0.96 0.01 264);
+    --bg-light: oklch(1 0.01 264);
+    --text: oklch(0.15 0.02 264);
+    --text-muted: oklch(0.4 0.02 264);
+    --highlight: oklch(1 0.02 264);
+    --border: oklch(0.6 0.02 264);
+    --border-muted: oklch(0.7 0.02 264);
+    --primary: oklch(0.4 0.1 264);
+    --secondary: oklch(0.4 0.1 84);
+    --danger: oklch(0.5 0.05 30);
+    --warning: oklch(0.5 0.05 100);
+    --success: oklch(0.5 0.05 160);
+    --info: oklch(85.237% 0.07309 260.014);
+
+    /* NEW: Shadow color for light mode (a dark shadow) */
+    --shadow-rgb: 0, 0, 0;
+}
+
+/* --- 3D Background Canvas --- */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Wrapper for Centering --- */
+#center-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+/* #center-wrapper {
+    display: none;
+} */
+
+/* --- Content Container --- */
+#content-container {
+    padding: 2rem 0;
+    background-color: var(--bg);
+    color: var(--text);
+    border-radius: 0 0 15px 15px;
+    /* UPDATED: Using the new shadow variable */
+    box-shadow: 0 10px 30px rgba(var(--shadow-rgb), 0.1);
+    border: 2px solid var(--border);
+    border-top: none;
+    margin-top: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- UPDATED: Navigation & Links --- */
+nav {
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    background-color: var(--bg);
+    border: 2px solid var(--border);
+    border-bottom: none;
+    border-radius: 15px 15px 0 0;
+    padding: 0.8rem 2rem; /* Adjusted padding for icon */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* --- REVISED: Active link box is now more subtle --- */
+nav a.active {
+    color: var(--text);
+    text-decoration: none;
+    background-color: var(--info);
+}
+
+/* --- REVISED: Theme Toggle Icon Button Styling --- */
+#theme-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%; /* Make the hover background circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--border-muted);
+}
+
+#theme-toggle img {
+    width: 24px;  /* Control size of the icon */
+    height: 24px;
+    filter: invert(1);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+#theme-toggle:hover img {
+    opacity: 1;
+}
+
+body.light-mode #theme-toggle img {
+    filter: invert(0);
+}
+
+
+/* --- STICKY "PEEL-OFF" EFFECT STYLES --- */
+nav.nav-stuck {
+    border-radius: 15px;
+    border-bottom: 2px solid var(--border);
+    /* UPDATED: Using the new shadow variable */
+    box-shadow: 0 5px 15px rgba(var(--shadow-rgb), 0.2);
+    background-color: var(--bg-light);
+}
+
+nav.nav-stuck + #content-container {
+    border-radius: 15px;
+    margin-top: 1.5rem;
+    border-top: 2px solid var(--border);
+}
+
+/* --- SECTION VISIBILITY RULES --- */
+section {
+    padding: 0 3rem;
+    display: none;
+}
+
+section.active-section {
+    display: block;
+}
+
+/* --- Typography --- */
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.home-photo {
+    float: right;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.home-photo img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-muted);
+}
+
+#content-container a {
+    color: var(--primary); 
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;   
+    font-weight: 500;             
+    transition: all 0.2s ease;    
+}
