@@ -236,7 +236,7 @@ p {
 #content-container a {
     color: var(--primary); 
     text-decoration: underline;
-    text-decoration-style: dotted;
+    text-decoration-style: solid;
     text-underline-offset: 3px;   
     font-weight: 500;             
     transition: all 0.2s ease;    
