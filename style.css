@@ -88,6 +88,8 @@ nav {
 .nav-logo img {
     width: 24px;
     height: 24px;
+    min-width: 24px;     /* Added to prevent flexbox distortion */
+    object-fit: contain; /* Added to preserve aspect ratio */
 }
 
 .nav-links {
@@ -284,22 +286,29 @@ a:hover {
     align-items: center;
 }
 
+/* FIXED SVGs IN FLEXBOX HERE */
 .embed-row img:first-child {
-    max-height: 100px;
-    flex-shrink: 0;
+    height: 100px;
+    width: auto;
+    flex-shrink: 1; 
 }
 
 .embed-row img:last-child {
-    max-height: 120px;
-    flex-shrink: 0;
+    height: 120px;
+    width: auto;
+    flex-shrink: 1;
 }
 
 .embed-row-poster img:first-child {
-    max-height: 150px;
+    height: 150px;
+    width: auto;
+    flex-shrink: 1;
 }
 
 .embed-row-poster img:last-child {
-    max-height: 240px;
+    height: 240px;
+    width: auto;
+    flex-shrink: 1;
 }
 
 .embed-zone img.invertable {
@@ -386,6 +395,13 @@ footer p {
 
     .nav-links {
         gap: 1rem;
+    }
+    
+    .embed-row {
+        margin-left: 0;
+        margin-right: 0;
+        gap: 2rem;
+        flex-direction: column; /* Optional: Stack images on mobile so they don't get too small */
     }
 }
 
