@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Open+Sans:wght@300;400;500;700&display=swap');
 
 /* --- OKLCH Color Palette --- */
 :root {
-    /* Dark Mode Palette */
     --bg-dark: oklch(0.1 0.025 264);
     --bg: oklch(0.15 0.025 264);
     --bg-light: oklch(0.2 0.025 264);
@@ -20,27 +16,9 @@
     --warning: oklch(0.7 0.05 100);
     --success: oklch(0.7 0.05 160);
     --info: oklch(59% 0.0424 260.638);
-    
-    /* NEW: Shadow color for dark mode (a light glow) */
-    --shadow-rgb: 220, 220, 255; 
+    --shadow-rgb: 220, 220, 255;
 }
 
-/* --- Basic Reset & Body Styling --- */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding-top: 40vh;
-    padding-bottom: 50vh;
-    background-color: var(--bg-dark);
-    color: var(--text);
-    font-family: 'Open Sans', sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* --- Light Mode Color Palette --- */
 body.light-mode {
     --bg-dark: oklch(0.92 0.01 264);
     --bg: oklch(0.96 0.01 264);
@@ -56,99 +34,80 @@ body.light-mode {
     --warning: oklch(0.5 0.05 100);
     --success: oklch(0.5 0.05 160);
     --info: oklch(85.237% 0.07309 260.014);
-
-    /* NEW: Shadow color for light mode (a dark shadow) */
     --shadow-rgb: 0, 0, 0;
 }
 
-/* --- 3D Background Canvas --- */
-#bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+/* --- Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* --- Wrapper for Centering --- */
-#center-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 3rem;
-}
-
-/* #center-wrapper {
-    display: none;
-} */
-
-/* --- Content Container --- */
-#content-container {
-    padding: 2rem 0;
-    background-color: var(--bg);
+/* --- Body --- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-dark);
     color: var(--text);
-    border-radius: 0 0 15px 15px;
-    /* UPDATED: Using the new shadow variable */
-    box-shadow: 0 10px 30px rgba(var(--shadow-rgb), 0.1);
-    border: 2px solid var(--border);
-    border-top: none;
-    margin-top: 0;
-    transition: all 0.3s ease-in-out;
+    line-height: 1.75;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- UPDATED: Navigation & Links --- */
-nav {
+/* --- Navigation --- */
+header {
     position: sticky;
-    top: 20px;
-    z-index: 10;
-    background-color: var(--bg);
-    border: 2px solid var(--border);
-    border-bottom: none;
-    border-radius: 15px 15px 0 0;
-    padding: 0.8rem 2rem; /* Adjusted padding for icon */
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--border-muted);
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    max-width: 720px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 0.8rem 1.5rem;
     gap: 1.5rem;
-    transition: all 0.3s ease-in-out;
+}
+
+.nav-name {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
     display: flex;
     gap: 1.5rem;
+    margin-left: auto;
 }
 
-nav a {
+.nav-links a {
     text-decoration: none;
     color: var(--text-muted);
+    font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    padding: 0.4rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid transparent;
+    transition: color 0.2s ease;
 }
 
-nav a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--primary);
 }
 
-/* --- REVISED: Active link box is now more subtle --- */
-nav a.active {
-    color: var(--text);
-    text-decoration: none;
-    background-color: var(--info);
-}
-
-/* --- REVISED: Theme Toggle Icon Button Styling --- */
 #theme-toggle {
-    background-color: transparent;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%; /* Make the hover background circular */
+    padding: 0.4rem;
+    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     transition: background-color 0.2s ease;
 }
 
@@ -157,8 +116,8 @@ nav a.active {
 }
 
 #theme-toggle img {
-    width: 24px;  /* Control size of the icon */
-    height: 24px;
+    width: 20px;
+    height: 20px;
     filter: invert(1);
     opacity: 0.7;
     transition: opacity 0.2s ease;
@@ -172,72 +131,218 @@ body.light-mode #theme-toggle img {
     filter: invert(0);
 }
 
-
-/* --- STICKY "PEEL-OFF" EFFECT STYLES --- */
-nav.nav-stuck {
-    border-radius: 15px;
-    border-bottom: 2px solid var(--border);
-    /* UPDATED: Using the new shadow variable */
-    box-shadow: 0 5px 15px rgba(var(--shadow-rgb), 0.2);
-    background-color: var(--bg-light);
+/* --- Main Content --- */
+main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
 }
 
-nav.nav-stuck + #content-container {
-    border-radius: 15px;
-    margin-top: 1.5rem;
-    border-top: 2px solid var(--border);
-}
-
-/* --- SECTION VISIBILITY RULES --- */
 section {
-    padding: 0 3rem;
-    display: none;
+    padding: 0;
 }
 
-section.active-section {
-    display: block;
+/* --- About Section --- */
+h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    cursor: default;
+}
+
+.about-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-photo img {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--border-muted);
+    flex-shrink: 0;
+}
+
+/* --- Section Dividers --- */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-muted);
+    margin: 3rem 0;
 }
 
 /* --- Typography --- */
 h2 {
-    font-size: 3rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
     color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    cursor: default;
 }
 
 h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.7rem;
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--text);
+    margin-bottom: 0.4rem;
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
     font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 0.8rem;
+    color: var(--text);
 }
 
-.home-photo {
-    float: right;
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+.note {
+    color: var(--text-muted);
+    font-size: 0.9rem;
 }
 
-.home-photo img {
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--border-muted);
-}
-
-#content-container a {
-    color: var(--primary); 
+/* --- Links --- */
+a {
+    color: var(--primary);
     text-decoration: underline;
-    text-decoration-style: solid;
-    text-underline-offset: 3px;   
-    font-weight: 500;             
-    transition: all 0.2s ease;    
+    text-underline-offset: 3px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+/* --- Document List --- */
+.doc-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+}
+
+.doc-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-muted);
+    font-size: 1.05rem;
+}
+
+.doc-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- Projects --- */
+.project {
+    margin-bottom: 2rem;
+}
+
+.project:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Embed Zones --- */
+.embed-zone {
+    margin: 1rem 0;
+}
+
+.embed-zone img,
+.embed-zone iframe {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* --- Letter Scatter Effect --- */
+.scatter-text {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.scatter-text .outer {
+    display: inline-block;
+    transition: transform 350ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.scatter-text:hover .outer {
+    transition-duration: 800ms;
+}
+
+.scatter-text:hover .outer .inner {
+    animation: float 5s ease infinite;
+}
+
+.scatter-text:hover .outer .letter {
+    background: linear-gradient(to right, var(--primary), var(--secondary), var(--primary));
+    background-size: 1000%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: background-pan 150s linear infinite;
+}
+
+@keyframes float {
+    from, to { transform: translateY(0%); }
+    50% { transform: translateY(-3%); }
+}
+
+@keyframes background-pan {
+    from { background-position: 1000% center; }
+    to { background-position: 0% center; }
+}
+
+/* --- Footer --- */
+footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--border-muted);
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    main {
+        padding: 2rem 1rem 3rem;
+    }
+
+    nav {
+        padding: 0.6rem 1rem;
+    }
+
+    .about-layout {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-photo img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
