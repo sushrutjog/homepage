@@ -37,11 +37,16 @@ body.light-mode {
     --shadow-rgb: 0, 0, 0;
 }
 
-/* --- Reset --- */
+/* --- Reset & Base --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-padding-top: 5rem; 
+    scroll-behavior: smooth; 
 }
 
 /* --- Body --- */
@@ -256,7 +261,7 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* --- Embed Zones --- */
+
 .embed-zone {
     margin: 1rem 0;
     text-align: center;
@@ -286,7 +291,7 @@ a:hover {
     align-items: center;
 }
 
-/* FIXED SVGs IN FLEXBOX HERE */
+
 .embed-row img:first-child {
     height: 100px;
     width: auto;
