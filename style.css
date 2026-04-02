@@ -72,12 +72,22 @@ nav {
     gap: 1.5rem;
 }
 
-.nav-name {
-    font-family: 'Space Mono', monospace;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text);
-    letter-spacing: -0.02em;
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 50%;
+    transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover {
+    opacity: 0.7;
+}
+
+.nav-logo img {
+    width: 24px;
+    height: 24px;
 }
 
 .nav-links {
@@ -232,12 +242,7 @@ a:hover {
 
 .doc-list li {
     padding: 0.6rem 0;
-    border-bottom: 1px solid var(--border-muted);
     font-size: 1.05rem;
-}
-
-.doc-list li:last-child {
-    border-bottom: none;
 }
 
 /* --- Projects --- */
@@ -252,12 +257,57 @@ a:hover {
 /* --- Embed Zones --- */
 .embed-zone {
     margin: 1rem 0;
+    text-align: center;
+}
+
+.embed-zone img.octagon {
+    max-height: 430px;
 }
 
 .embed-zone img,
 .embed-zone iframe {
     max-width: 100%;
     border-radius: 6px;
+}
+
+.embed-row {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    overflow-x: visible;
+    margin-left: -5rem;
+    margin-right: -5rem;
+}
+
+.embed-row-poster {
+    align-items: center;
+}
+
+.embed-row img:first-child {
+    max-height: 100px;
+    flex-shrink: 0;
+}
+
+.embed-row img:last-child {
+    max-height: 120px;
+    flex-shrink: 0;
+}
+
+.embed-row-poster img:first-child {
+    max-height: 150px;
+}
+
+.embed-row-poster img:last-child {
+    max-height: 240px;
+}
+
+.embed-zone img.invertable {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+body.light-mode .embed-zone img.invertable {
+    filter: none;
 }
 
 /* --- Letter Scatter Effect --- */

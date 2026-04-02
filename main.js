@@ -16,7 +16,12 @@ themeToggle.addEventListener('click', () => {
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
+        const href = link.getAttribute('href');
+        if (href === '#home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        const target = document.querySelector(href);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
 });
